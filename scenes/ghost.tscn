@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_head"]
+radius = 0.12
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="Mat_head"]
+albedo_color = Color(0.4, 0.8, 1, 0.6)
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hand"]
+size = Vector3(0.08, 0.08, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="Mat_hand"]
+albedo_color = Color(0.4, 0.8, 1, 0.6)
+transparency = 1
+shading_mode = 0
+
+[node name="Ghost" type="Node3D"]
+
+[node name="GhostHead" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="GhostHead"]
+mesh = SubResource("CapsuleMesh_head")
+material_override = SubResource("Mat_head")
+
+[node name="GhostLeftHand" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="GhostLeftHand"]
+mesh = SubResource("BoxMesh_hand")
+material_override = SubResource("Mat_hand")
+
+[node name="GhostRightHand" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="GhostRightHand"]
+mesh = SubResource("BoxMesh_hand")
+material_override = SubResource("Mat_hand")
